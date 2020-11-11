@@ -11,7 +11,12 @@ for paragraph in document.paragraphs:
     fin = ''
     definition = ''
     example = ''
-    translation = re.findall('\[.*]', paragraph.text)[0][1:-1]
+    use = ''
+    
+    try:
+        translation = re.findall('\[.*]', paragraph.text)[0][1:-1]
+    except:
+        print(paragraph.text)
     for run in paragraph.runs:
         if run.bold:
             fin = fin + run.text
